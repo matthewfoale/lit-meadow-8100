@@ -26,19 +26,28 @@ gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'unicorn'
+group :development, :test do
+  gem 'sqlite3'
+end
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 
+end
+
 group :production do
 	gem 'rails_12factor'
 	gem 'pg', '0.17.1'
+    gem 'unicorn'
+	gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+	gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+
   
 end
 
-end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
